@@ -701,6 +701,28 @@ in
       meta.maintainers = lib.teams.php.members;
     };
 
+    symfony-cli = stdenv.mkDerivation rec {
+      version = "4.14.3";
+      pname = "symfony-cli";
+
+      src = fetchurl {
+          url = "https://github.com/symfony/cli/releases/download/v${version}/symfony_linux_amd64.gz";
+          sha256 = "2de22cb1ecb6b9115edab00471410991e99f4ecd875fec9f9c6f5a46a9fe5523";
+      };
+
+      phases = ["unpackPhase" "installPhase"];
+
+      unpackPhase = "zcat $src > symfony";
+
+      installPhase = ''
+          mkdir -p $out/bin
+          install -m 755 symfony $out/bin
+      '';
+
+      meta.maintainers = lib.teams.php.members;
+      meta.license = lib.licenses.unfree;
+    };
+
     v8 = buildPecl {
       version = "0.2.2";
       pname = "v8";
