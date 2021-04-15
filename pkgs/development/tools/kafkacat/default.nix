@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchFromGitHub, pkg-config, zlib, rdkafka, yajl }:
+{ lib, stdenv, fetchFromGitHub, pkg-config, zlib, rdkafka, yajl, libserdes, avro-c }:
 
 stdenv.mkDerivation rec {
   pname = "kafkacat";
@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   nativeBuildInputs = [ pkg-config ];
 
-  buildInputs = [ zlib rdkafka yajl ];
+  buildInputs = [ zlib rdkafka yajl libserdes avro-c ];
 
   preConfigure = ''
     patchShebangs ./configure
@@ -25,6 +25,6 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/edenhill/kafkacat";
     license = licenses.bsd2;
     platforms = platforms.linux ++ platforms.darwin;
-    maintainers = with maintainers; [ nyarly ];
+    maintainers = with maintainers; [ nyarly charlycoste ];
   };
 }

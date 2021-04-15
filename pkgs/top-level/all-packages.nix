@@ -18545,6 +18545,8 @@ in
   knot-dns = callPackage ../servers/dns/knot-dns { };
   knot-resolver = callPackage ../servers/dns/knot-resolver { };
 
+  libserdes = callPackage ../development/libraries/libserdes { };
+
   rdkafka = callPackage ../development/libraries/rdkafka { };
 
   leafnode = callPackage ../servers/news/leafnode { };

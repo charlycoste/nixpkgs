@@ -1675,6 +1675,12 @@
     githubId = 6608071;
     name = "Charles Huyghues-Despointes";
   };
+  charlycoste = {
+    email = "charles-edouard@coste.dev";
+    github = "charlycoste";
+    githubId = 352634;
+    name = "Charles-Édouard Coste";
+  };
   chaoflow = {
     email = "flo@chaoflow.net";
     github = "chaoflow";
